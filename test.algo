@@ -1,0 +1,51 @@
+ALGORITHM Checkpoint
+VAR
+    i,j,sum:INTEGER;
+    str:STRING;
+    nbr1,nbr2:INTEGER;
+    tab : ARRAY_OF INTEGER[5];
+    tab2 : ARRAY_OF INTEGER[8];
+    test :BOOLEAN;
+    test1 :BOOLEAN;
+BEGIN
+    nbr:=0;
+    Write ("donnez une phrase");
+    Read (str);
+    FOR i FROM 1 TO (str.length-1) STEP 1  DO 
+        IF (str[i+1]==" " OR ".") THEN
+            nbr1:=nbr1+1;
+        END_IF
+        IF (ToUpper(str[i]) == "A" OR ToUpper(str[i]) == "E" OR ToUpper(str[i]) == "O" OR ToUpper(str[i]) == "U" OR ToUpper(str[i]) == "I" OR ToUpper(str[i]) == "Y") THEN
+        nbr2:=nbr2+1;
+        END_IF
+    END_FOR
+    Write(nbr1);
+    Write(nbr2);
+    tab:= {1,3,5,7,9};
+    tab2:= {1,2,3,4,5,6,7,8};
+    sum:=0;
+    FOR j FROM 0 TO 5 STEP 1 DO
+        test:= FALSE;
+        FOR i FROM 0 TO 8 STEP 1 DO
+            IF (tab[j]==tab2[i]) THEN
+            test:=TRUE;
+            END_IF
+        END_FOR
+        IF(test==FALSE) THEN
+            sum:=sum+tab[j];
+        END_IF
+    END_FOR
+    
+        FOR j FROM 0 TO 8 STEP 1 DO
+        test:= FALSE;
+        FOR i FROM 0 TO 5 STEP 1 DO
+            IF (tab2[j]==tab[i]) THEN
+            test1:=TRUE;
+            END_IF
+        END_FOR
+        IF(test1==FALSE) THEN
+            sum:=sum+tab[j];
+        END_IF
+    END_FOR
+    Write(sum);
+END
