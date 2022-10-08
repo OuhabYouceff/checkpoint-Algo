@@ -1,0 +1,66 @@
+ALGORITHM checkpoint2(task1)
+
+FUNCTION dot_product(tab : ARRAY_OF Float[2],tab1 : ARRAY_OF Float[2]) : Float
+VAR
+    result : Float ;
+BEGIN
+    result:=0;
+    result:=result+(tab[1]*tab1[2])+(tab[2]*tab1[1]);
+    RETURN result ;
+END
+
+VAR
+    n,i:INTEGER;
+    a,b,c,d,result:FLOAT;
+    tab :ARRAY_OF FLOAT[2];
+    tab1 : ARRAY_OF FLOAT[2];
+BEGIN
+    write("Give n");
+    Read(n);
+
+    FOR i FROM 0 TO n STEP 1  DO
+
+        write("give the first vector");
+        Read(tab[1]);
+        Read(tab[2]);
+        write("give the second vector");
+        Read(tab1[1]);
+        Read(tab2[2]);
+
+        result:=dot_product(tab,tab1);
+        
+        IF (result==0) THEN
+            Write("the pair",i,"is is orthogonal");
+        ELSE 
+            Write("the pair",i,"is not orthogonal");
+        END_IF
+    END_FOR
+
+
+END    
+
+//part 2:
+
+ALGORITHM checkpoint2(task2)
+
+VAR
+    n,i,j:INTEGER;
+    elem:FLOAT;
+    tab3 :ARRAY_OF FLOAT[n];
+BEGIN
+
+FOR i FROM 1 TO n STEP 1   DO
+    Write("give tab[",i,"]");
+    Read(tab[i]);
+END_FOR
+
+FOR i FROM 0 TO n-1 STEP 1   DO
+    elem = tab[i];
+    j=i;
+    WHILE (j>0 && (tab[j-1]>elem)) DO
+        tab[j]= tab[j-1];
+        j:=j-1;
+    END_WHILE
+    tab[j]=elem;
+END_FOR
+END
